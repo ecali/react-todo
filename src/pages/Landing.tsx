@@ -1,7 +1,11 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Loader } from "../components/Loader";
 import { UserAuth } from "../context/AuthContext";
+import { DiReact } from "react-icons/di";
+import {SiGoogle} from 'react-icons/si';
+import {AiOutlineLogin} from 'react-icons/ai';
+import { Login } from "../components/Login";
 
 export const Landing = () => {
   const { user } = UserAuth();
@@ -14,11 +18,20 @@ export const Landing = () => {
   }, [user]);
   return (
     <>
-      {user ?(
+      {user ? (
         <Loader />
-      ):  (
-        <h4>hello baby</h4>
-      ) }
+      ) : (
+        <div className="landing-container">
+          <h1 className="display-5">Hello! 👋</h1>
+          <p className="lead">
+            If you want use this simple todo app made with React <DiReact />
+            you can make login with <SiGoogle />oogle with clicking on button under this
+            paragraph.
+          </p>
+          <Login />
+          
+        </div>
+      )}
     </>
   );
 };
