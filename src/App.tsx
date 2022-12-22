@@ -1,6 +1,7 @@
 import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
 import "./App.css";
 import { Navbar } from "./components/Navbar";
+import { Protected } from "./components/Protected";
 import { AuthContextProvider } from "./context/AuthContext";
 import { Account } from "./pages/Account";
 import { Home } from "./pages/Home";
@@ -17,7 +18,14 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<SignIn />} />
             <Route path="/register" element={<SignUp />} />
-            <Route path="/account" element={<Account />} />
+            <Route
+              path="/account"
+              element={
+                <Protected>
+                  <Account />
+                </Protected>
+              }
+            />
           </Routes>
         </div>
       </Router>
