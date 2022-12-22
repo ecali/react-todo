@@ -19,7 +19,7 @@ export const SignIn = () => {
     if(user){
         navigate('/');
     }
-  }, []);
+  }, [user]);
 
   return (
     <div>
