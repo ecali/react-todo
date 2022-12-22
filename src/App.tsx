@@ -1,11 +1,27 @@
-
-import './App.css';
+import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
+import "./App.css";
+import { Navbar } from "./components/Navbar";
+import { AuthContextProvider } from "./context/AuthContext";
+import { Account } from "./pages/Account";
+import { Home } from "./pages/Home";
+import { SignIn } from "./pages/Signin";
+import { SignUp } from "./pages/Signup";
 
 function App() {
   return (
-    <div className="App">
-      <h3 className='text-primary'>todo app</h3>
-    </div>
+    <AuthContextProvider>
+      <Router>
+        <Navbar />
+        <div className="App">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<SignIn />} />
+            <Route path="/register" element={<SignUp />} />
+            <Route path="/account" element={<Account />} />
+          </Routes>
+        </div>
+      </Router>
+    </AuthContextProvider>
   );
 }
 
