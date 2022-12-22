@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
 type TWindowSize = [number, number];
 
-type THook = TWindowSize;
 
-export const useWindowResize = (): THook => {
+export const useWindowResize = (): number => {
   const initSize: TWindowSize = [
     window.innerWidth,
     window.innerHeight,
@@ -24,5 +23,5 @@ export const useWindowResize = (): THook => {
     };
   }, []);
 
-  return windowSize;
+  return windowSize[0];
 };

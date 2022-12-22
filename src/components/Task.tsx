@@ -3,7 +3,7 @@ import { TiTick } from "react-icons/ti";
 import { useWindowResize } from "../hooks/useWindowsSize";
 
 export const Task = () => {
-    const [width, height] = useWindowResize();
+    const width = useWindowResize();
     const brackPoint = 650;
   return (
     <div className="task-card">
