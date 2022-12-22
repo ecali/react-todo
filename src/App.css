@@ -1,6 +1,15 @@
+.navbar {
+  justify-content: space-around !important;
+  background: radial-gradient(
+    circle,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(3, 3, 36, 1) 0%,
+    rgba(1, 25, 32, 1) 80%
+  );
+}
 .main-cnt {
   width: 80%;
-  margin: 0 auto;
+  margin: 30px auto;
 }
 .search-button {
   height: 60px;
@@ -35,6 +44,7 @@
 }
 .task-description {
   margin: 20px 0;
+  font-size: 30px;
 }
 .task-description p {
   margin: 0 !important;
@@ -69,13 +79,25 @@
 
 .footer {
   color: white;
-  background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(3,3,36,1) 0%, rgba(1,25,32,1) 80%);
+  background: radial-gradient(
+    circle,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(3, 3, 36, 1) 0%,
+    rgba(1, 25, 32, 1) 80%
+  );
   height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
+.footer a{
+  color: #FF00FF;
+  margin-left: 5px;
+}
+.footer a:hover{
+  color: #FF00FF;
+  margin-left: 5px;
+}
 @media only screen and (max-width: 840px) {
   .task-cnt {
     width: 100%;
@@ -83,6 +105,54 @@
   .main-cnt {
     width: 90%;
   }
+}
+
+/* LOGOUT button */
+
+.logout-navigation {
+  width: 33%;
+}
+
+.logout-img {
+  width: 25px;
+  border-radius: 50px;
+  float: left;
+}
+
+.logout {
+  font-size: 0.8em;
+  font-family: "Oswald", sans-serif;
+  position: relative;
+  right: -18px;
+  bottom: -4px;
+  overflow: hidden;
+  letter-spacing: 3px;
+  opacity: 0;
+  transition: opacity 0.45s;
+  -webkit-transition: opacity 0.35s;
+}
+.button-a {
+  text-decoration: none;
+  float: right;
+  padding: 12px;
+  margin: 15px;
+  color: white;
+  width: 48px;
+  transition: width 0.35s !important;
+  -webkit-transition: width 0.35s;
+  overflow: hidden;
+}
+
+a.button-a:hover {
+  width: 130px;
+}
+
+a.button-a:hover .logout {
+  opacity: 0.9;
+}
+
+a.button-a {
+  text-decoration: none;
 }
 
 /* LOADER */
