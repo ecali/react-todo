@@ -12,7 +12,7 @@ export const Navbar = () => {
   };
   return (
     <div className="navbar">
-      <Link to="/"> Home </Link>
+      <Link to="/home"> Home </Link>
       <Link to="/account"> Account </Link>
       {user?.displayName ? (
         <button onClick={handleLogOut}>Logout </button>

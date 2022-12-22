@@ -9,7 +9,7 @@ export const SignIn = () => {
   const handleGoogleSignIn = async () => {
     try {
       await googleSignIn();
-      navigate('/account');
+      navigate('/home');
     } catch (error) {
       console.log(error);
     }
@@ -17,7 +17,7 @@ export const SignIn = () => {
 
   useEffect(() => {
     if(user){
-        navigate('/');
+        navigate('/home');
     }
   }, [user]);
 
