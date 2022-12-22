@@ -9,7 +9,7 @@ export const SignIn = () => {
   const handleGoogleSignIn = async () => {
     try {
       await googleSignIn();
-      navigate('/');
+      navigate('/account');
     } catch (error) {
       console.log(error);
     }
