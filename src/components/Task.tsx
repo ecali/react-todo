@@ -1,5 +1,4 @@
 import { MdDeleteOutline } from "react-icons/md";
-import { TiTick } from "react-icons/ti";
 import { useWindowResize } from "../hooks/useWindowsSize";
 import { TaskModel } from "../utils/task";
 
