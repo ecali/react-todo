@@ -17,7 +17,7 @@
 }
 .main-cnt {
   width: 80%;
-  margin: 30px auto;
+  margin: 30px auto 60px;
 }
 .search-button {
   height: 60px;
@@ -37,18 +37,20 @@
   margin: 20px auto;
 }
 .task-card {
-  background: linear-gradient(
-    90deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(9, 9, 121, 1) 0%,
-    rgba(0, 212, 255, 1) 100%
-  );
+  
+  background: linear-gradient( 90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 0%, rgba(0, 212, 255, 1) 100% );
   color: white;
   font-size: 16px;
   border-radius: 15px;
   display: flex;
-  flex-direction: column;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  flex-direction: row;
+  box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+  margin-bottom: 10px;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 20px;
+
+
 }
 .task-description {
   margin: 20px 0;
@@ -59,6 +61,7 @@
 }
 .task-button-cnt {
   display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
   color: white;
   margin-bottom: 10px;
@@ -69,14 +72,16 @@
   border: none;
   color: white;
   width: 100%;
-  border-top: solid;
   margin: 0 10%;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 10px;
 }
+.btn-end{
+  border-top: solid !important;
 
+}
 .btn-end svg {
   color: green;
 }

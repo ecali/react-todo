@@ -4,7 +4,6 @@ import { Loader } from "../components/Loader";
 import { UserAuth } from "../context/AuthContext";
 import { DiReact } from "react-icons/di";
 import {SiGoogle} from 'react-icons/si';
-import {AiOutlineLogin} from 'react-icons/ai';
 import { Login } from "../components/Login";
 
 export const Landing = () => {
@@ -29,7 +28,7 @@ export const Landing = () => {
             paragraph.
           </p>
           <Login />
-          
+
         </div>
       )}
     </>
