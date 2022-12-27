@@ -16,9 +16,6 @@ export const Task = (props: {task: TaskModel}) => {
         <button className="btn-del">
           {width > brackPoint && 'DELETE - ' }<MdDeleteOutline />
         </button>
-        <button className="btn-end">
-        {width > brackPoint && 'CLOSE - ' }<TiTick />
-        </button>
       </div>
     </div>
   );
