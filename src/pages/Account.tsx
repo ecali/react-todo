@@ -1,4 +1,5 @@
 import { UserAuth } from "../context/AuthContext";
+import { MdOutlineVerified } from "react-icons/md";
 
 export const Account = () => {
   const { user, logOut } = UserAuth();
@@ -13,14 +14,22 @@ export const Account = () => {
 
   return (
     <div>
-      <h3 className="text-primary">Account Page</h3>
-      {user ? (
-        <>
-          <p>Hello, {user?.displayName}</p>
-          <button onClick={handleLogout}>Logout</button>
-        </>
-      ) : (
-        ""
+      {user && (
+        <div className="account-card">
+          <img
+            src={user.photoURL.replace("s96", "s150")}
+            referrerPolicy="no-referrer"
+          />
+          <p className="lead">
+            Hello, <strong>{user?.displayName}</strong>
+            {!user.isAnonymous ? <MdOutlineVerified /> : "❌"}{" "}
+          </p>
+
+          <p className="fw-lighter">{user.email}</p>
+          <button type="button" onClick={handleLogout} className="btn btn-dark">
+            Logout
+          </button>
+        </div>
       )}
     </div>
   );

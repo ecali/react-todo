@@ -52,6 +52,8 @@
   margin-bottom: 10px;
   justify-content: space-between;
   align-items: center;
+  padding-left: 20px;
+
 }
 .task-description {
   margin: 20px 0;
@@ -82,9 +84,7 @@
   border: solid;
   border-radius: 10px;
 }
-.btn-end {
-  border-top: solid !important;
-}
+
 .btn-end svg {
   color: green;
 }
@@ -177,6 +177,23 @@ a.button-a {
   text-decoration: none;
 }
 
+.account-card {
+  width: 80%;
+  margin: 10% auto;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  padding: 20px 10px;
+  max-width: 300px;
+}
+.account-card img {
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+.button-filter {
+  width: 80%;
+  margin-top: 10px;
+}
 /* LOADER */
 .lds-default {
   display: inline-block;

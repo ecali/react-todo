@@ -15,6 +15,8 @@ export const Navbar = () => {
   };
   return (
     <div className="navbar">
+        <h1 className="display-6 text-light">Cali React Todo</h1>
+
       {user?.displayName ? (
         <>
           {location.pathname !== "/home" && (
@@ -41,7 +43,8 @@ export const Navbar = () => {
               </button>
             </Link>
           )}
-          <LogOutButton onClick={handleLogOut}  image={user.photoURL} />
+
+          {/* <LogOutButton onClick={handleLogOut}  image={user.photoURL} /> */}
         </>
       ) : (
         <h1 className="display-6 text-light">Cali React Todo</h1>

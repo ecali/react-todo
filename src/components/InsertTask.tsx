@@ -1,6 +1,6 @@
 import { addDoc, collection } from "firebase/firestore";
 import { useState } from "react";
-import { BsSearch } from "react-icons/bs";
+import { MdAddCircleOutline } from "react-icons/md";
 import { UserAuth } from "../context/AuthContext";
 import { db } from "../firebase";
 import { TaskModel } from "../utils/task";
@@ -15,6 +15,7 @@ export const InsertTask = () => {
       completed: false,
     };
     await addDoc(collection(db, 'todos' + user.uid), {t});
+    setValue('');
   };
 
   return (
@@ -30,7 +31,7 @@ export const InsertTask = () => {
         disabled={!value}
         onClick={handleNewTask}
       >
-        <BsSearch />
+        <MdAddCircleOutline />
       </button>
     </div>
   );
