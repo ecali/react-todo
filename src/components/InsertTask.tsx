@@ -1,23 +1,20 @@
+import { addDoc, collection } from "firebase/firestore";
 import { useState } from "react";
 import { BsSearch } from "react-icons/bs";
 import { UserAuth } from "../context/AuthContext";
+import { db } from "../firebase";
 import { TaskModel } from "../utils/task";
 
-export const InsertTask = (props: {
-  tasks: TaskModel[];
-  setTasks: (value: TaskModel[]) => void;
-}) => {
+export const InsertTask = () => {
   const {user} = UserAuth();
   const [value, setValue] = useState("");
 
-  const handleNewTask = () => {
+  const handleNewTask = async () => {
     const t: TaskModel = {
-      uid: user.uid,
       text: value.charAt(0).toUpperCase() + value.slice(1),
       completed: false,
     };
-    setValue('');
-    props.setTasks([t, ...props.tasks]);
+    await addDoc(collection(db, 'todos' + user.uid), {t});
   };
 
   return (
