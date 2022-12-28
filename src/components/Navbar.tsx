@@ -38,7 +38,7 @@ export const Navbar = () => {
                 data-bs-toggle="button"
                 aria-pressed="true"
               >
-                ACCOUNT
+                Profile
               </button>
             </Link>
           )}
