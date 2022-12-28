@@ -15,10 +15,9 @@ export const Navbar = () => {
   };
   return (
     <div className="navbar">
-        <h1 className="display-6 text-light">Cali React Todo</h1>
-
       {user?.displayName ? (
         <>
+          <h1 className="display-6 text-light">Cali React Todo</h1>
           {location.pathname !== "/home" && (
             <Link to="/home">
               <button
