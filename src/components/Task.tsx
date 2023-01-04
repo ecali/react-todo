@@ -1,13 +1,15 @@
+import DeleteIcon from "@mui/icons-material/Delete";
+import SendIcon from "@mui/icons-material/Send";
+import { Button, IconButton, Snackbar } from "@mui/material";
 import { deleteDoc, doc, updateDoc } from "firebase/firestore";
-import { title } from "process";
-import { MdDeleteOutline } from "react-icons/md";
+import { useState } from "react";
 import { UserAuth } from "../context/AuthContext";
 import { db } from "../firebase";
 import { useWindowResize } from "../hooks/useWindowsSize";
 import { TaskModel } from "../utils/task";
-import {TiTickOutline} from 'react-icons/ti';
 
 export const Task = (props: { task: TaskModel }) => {
+  const [snack, setSnack] = useState(false);
   const width = useWindowResize();
   const brackPoint = 650;
   const { user } = UserAuth();
@@ -21,19 +23,29 @@ export const Task = (props: { task: TaskModel }) => {
           text: props.task.text,
         },
       });
+      sendSnackBar();
     } catch (err) {
       alert(err);
     }
   };
 
   const handleDelete = async () => {
-    const taskDocRef = doc(db, "todos" + user.uid, props.task.id ?? "")
-    try{
-      await deleteDoc(taskDocRef)
+    const taskDocRef = doc(db, "todos" + user.uid, props.task.id ?? "");
+    try {
+      await deleteDoc(taskDocRef);
+      sendSnackBar();
     } catch (err) {
-      alert(err)
+      alert(err);
     }
-  }
+  };
+
+  const sendSnackBar = () => {
+    setSnack(true);
+  };
+  const handleSnackClose = () => {
+    setSnack(false);
+  };
+
   return (
     <div className="task-card">
       <div className="task-description">
@@ -41,17 +53,40 @@ export const Task = (props: { task: TaskModel }) => {
       </div>
       <div className="task-button-cnt">
         {props.task.completed ? (
-          <button className="btn-del" onClick={handleDelete}>
-            {width > brackPoint && "DELETE - "}
-            <MdDeleteOutline />
-          </button>
+          width > brackPoint ? (
+            <Button
+              variant="contained"
+              endIcon={<DeleteIcon />}
+              onClick={handleDelete}
+            >
+              Delete
+            </Button>
+          ) : (
+            <IconButton aria-label="delete" size="small">
+              <DeleteIcon fontSize="small" />
+            </IconButton>
+          )
+        ) : width > brackPoint ? (
+          <Button
+            variant="contained"
+            endIcon={<SendIcon />}
+            onClick={handleUpdate}
+          >
+            Send
+          </Button>
         ) : (
-          <button className="btn-end" onClick={handleUpdate}>
-            {width > brackPoint && "COMPLETE - "}
-            <TiTickOutline />
-          </button>
+          <IconButton aria-label="delete" size="small">
+            <SendIcon fontSize="small" />
+          </IconButton>
         )}
       </div>
+      <Snackbar
+        open={snack}
+        autoHideDuration={6000}
+        onClose={handleSnackClose}
+        message={props.task.completed ? "Task Deleted" : "Task Update"}
+        // action={action}
+      />
     </div>
   );
 };

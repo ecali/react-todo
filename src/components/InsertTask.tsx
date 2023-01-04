@@ -1,3 +1,4 @@
+import { TextField } from "@mui/material";
 import { addDoc, collection } from "firebase/firestore";
 import { useState } from "react";
 import { MdAddCircleOutline } from "react-icons/md";
@@ -6,7 +7,7 @@ import { db } from "../firebase";
 import { TaskModel } from "../utils/task";
 
 export const InsertTask = () => {
-  const {user} = UserAuth();
+  const { user } = UserAuth();
   const [value, setValue] = useState("");
 
   const handleNewTask = async () => {
@@ -14,18 +15,26 @@ export const InsertTask = () => {
       text: value.charAt(0).toUpperCase() + value.slice(1),
       completed: false,
     };
-    await addDoc(collection(db, 'todos' + user.uid), {t});
-    setValue('');
+    await addDoc(collection(db, "todos" + user.uid), { t });
+    setValue("");
   };
 
   return (
     <div className="insert-cnt">
-      <input
+      {/* <input
         className="search-input"
         type="text"
         value={value}
         onChange={(e) => setValue(e.target.value)}
-      ></input>
+      ></input> */}
+      <TextField
+        id="standard-basic"
+        label="Insert task..."
+        variant="standard"
+        fullWidth
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+      />
       <button
         className="search-button"
         disabled={!value}
