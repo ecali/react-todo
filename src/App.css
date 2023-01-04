@@ -95,7 +95,25 @@
 .btn-del svg {
   color: red;
 }
-
+.widget-container {
+  padding: 2rem;
+}
+.card-prof {
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+.card-prof img{
+  border-radius: 15px;
+}
+.card-dt {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
 .footer {
   color: white;
   background: radial-gradient(
@@ -192,8 +210,8 @@ a.button-a {
   width: 80%;
   /* margin: 10% auto; */
   border-radius: 10px;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
-    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  box-shadow: rgba(255, 255, 255, 0.4) 0px 2px 4px,
+    rgba(255, 255, 255, 0.3) 0px 7px 13px -3px, rgba(255, 255, 255, 0.2) 0px -3px 0px inset;
   padding: 20px 10px;
   max-width: 300px;
   height: 350px;
@@ -435,14 +453,15 @@ a.button-a {
 
 /* DITIGATL CLOCK */
 .clock {
-  background-color: black;
-  border: none;
+  border: 1px solid;
   border-radius: 10px;
+  width: 100%; 
 }
 .clock p {
   font-family: "Orbitron", sans-serif;
   font-size: 34px;
   color: greenyellow;
+  margin: 0;
 }
 
 /* SWITCH  */
