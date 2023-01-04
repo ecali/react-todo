@@ -2,6 +2,7 @@ import { UserAuth } from "../context/AuthContext";
 import { MdOutlineVerified } from "react-icons/md";
 import { DigitalClock } from "../components/DigitalClock";
 import { ChangeEvent, useState } from "react";
+import { DigitalDate } from "../components/DigitalDate";
 
 export const Account = () => {
   const { user, logOut } = UserAuth();
@@ -41,6 +42,9 @@ export const Account = () => {
             <p className="lead">Schedule</p>
             
            <DigitalClock format24={false} />
+           <p className="lead">Date</p>
+            
+           <DigitalDate />
             
           </div>
         </div>
