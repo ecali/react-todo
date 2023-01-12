@@ -12,6 +12,9 @@ import { SignUp } from "./pages/Signup";
 
 import CssBaseline from "@mui/material/CssBaseline";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { ResponsiveAppBar } from "./components/ResponsiveAppBar";
+import { Counter } from "./pages/Counter";
+import { Backlog } from "./pages/Backlog";
 
 const darkTheme = createTheme({
   palette: {
@@ -25,7 +28,8 @@ function App() {
       <CssBaseline />
       <AuthContextProvider>
         <Router>
-          <Navbar />
+          {/* <Navbar /> */}
+          <ResponsiveAppBar />
           <div className="App">
             <Routes>
               <Route path="/" element={<Landing />} />
@@ -44,6 +48,22 @@ function App() {
                 element={
                   <Protected>
                     <Account />
+                  </Protected>
+                }
+              />
+              <Route
+                path="/counter"
+                element={
+                  <Protected>
+                    <Counter />
+                  </Protected>
+                }
+              />
+              <Route
+                path="/backlog"
+                element={
+                  <Protected>
+                    <Backlog />
                   </Protected>
                 }
               />

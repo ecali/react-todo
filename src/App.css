@@ -119,6 +119,7 @@
 }
 .card-dt > .lead {
 font-size: 14px !important;
+margin-bottom: 0 !important;
 }
 .footer {
   color: white;
@@ -471,3 +472,36 @@ a.button-a {
 }
 
 /* SWITCH  */
+
+
+.MuiList-root a{
+  text-decoration: none;
+  color: #fff;
+}
+
+.MuiBox-root a{
+  text-decoration: none;
+  color: #fff;
+}
+
+
+/*BACKLOG*/
+.insert-back{
+  width: 80%;
+
+  margin: 25px auto;
+}
+
+.backlog-paper{
+  max-width: 120px;
+  min-width: 120px;
+}
+.backlog-cnt{
+  max-width: 80%;
+  margin: 2rem auto;
+}
+.button-container{
+  margin: 1rem;
+  display: flex;
+  justify-content: flex-end;
+}
