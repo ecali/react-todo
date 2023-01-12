@@ -16,7 +16,7 @@ export const Widget = () => {
   };
   return (
     <div className="widget-container">
-      <h1 className="display-4">Widget</h1>
+      <h1 className="display-6">Widget</h1>
       <Grid container direction="column" columns={1}>
         <Card variant="outlined" style={{ marginTop: "1rem" }}>
           <div className="card-prof">
@@ -45,6 +45,7 @@ export const Widget = () => {
             <p className="lead">Schedule</p>
 
             <DigitalClock format24={false} />
+            <hr></hr>
             <p className="lead">Date</p>
 
             <DigitalDate />

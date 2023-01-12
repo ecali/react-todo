@@ -37,7 +37,7 @@ export const Main = () => {
 
   return (
     <div className="main-cnt">
-      <h1 className="display-4">Tasks</h1>
+      <h1 className="display-6">Tasks</h1>
       <small className="text-muted secondary-text">
         Complete list of your tasks
       </small>

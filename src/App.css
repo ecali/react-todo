@@ -9,7 +9,7 @@
   );
 }
 .secondary-text {
-  font-size: 15px;
+  font-size: 13px;
 }
 .insert-cnt {
   width: 80%;
@@ -57,10 +57,11 @@
   justify-content: space-between;
   align-items: center;
   padding-left: 20px;
+  text-align: start;
 }
 .task-description {
   margin: 20px 0;
-  font-size: 18px;
+  font-size: 12px;
 }
 .task-description p {
   margin: 0 !important;
@@ -86,6 +87,7 @@
   height: 100%;
   border: solid;
   border-radius: 10px;
+  font-size: 12px;
 }
 
 .btn-end svg {
@@ -113,6 +115,10 @@
   padding: 1rem;
   align-items: center;
   justify-content: space-between;
+  
+}
+.card-dt > .lead {
+font-size: 14px !important;
 }
 .footer {
   color: white;
@@ -459,7 +465,7 @@ a.button-a {
 }
 .clock p {
   font-family: "Orbitron", sans-serif;
-  font-size: 34px;
+  font-size: 16px;
   color: greenyellow;
   margin: 0;
 }
