@@ -106,7 +106,7 @@
   align-items: center;
   justify-content: space-between;
 }
-.card-prof img{
+.card-prof img {
   border-radius: 15px;
 }
 .card-dt {
@@ -115,11 +115,10 @@
   padding: 1rem;
   align-items: center;
   justify-content: space-between;
-  
 }
 .card-dt > .lead {
-font-size: 14px !important;
-margin-bottom: 0 !important;
+  font-size: 14px !important;
+  margin-bottom: 0 !important;
 }
 .footer {
   color: white;
@@ -218,7 +217,8 @@ a.button-a {
   /* margin: 10% auto; */
   border-radius: 10px;
   box-shadow: rgba(255, 255, 255, 0.4) 0px 2px 4px,
-    rgba(255, 255, 255, 0.3) 0px 7px 13px -3px, rgba(255, 255, 255, 0.2) 0px -3px 0px inset;
+    rgba(255, 255, 255, 0.3) 0px 7px 13px -3px,
+    rgba(255, 255, 255, 0.2) 0px -3px 0px inset;
   padding: 20px 10px;
   max-width: 300px;
   height: 350px;
@@ -462,7 +462,7 @@ a.button-a {
 .clock {
   border: 1px solid;
   border-radius: 10px;
-  width: 100%; 
+  width: 100%;
 }
 .clock p {
   font-family: "Orbitron", sans-serif;
@@ -473,34 +473,31 @@ a.button-a {
 
 /* SWITCH  */
 
-
-.MuiList-root a{
+.MuiList-root a {
   text-decoration: none;
   color: #fff;
 }
 
-.MuiBox-root a{
+.MuiBox-root a {
   text-decoration: none;
   color: #fff;
 }
-
 
 /*BACKLOG*/
-.insert-back{
+.insert-back {
   width: 80%;
-
   margin: 25px auto;
 }
 
-.backlog-paper{
+.backlog-paper {
   max-width: 120px;
   min-width: 120px;
 }
-.backlog-cnt{
+.backlog-cnt {
   max-width: 80%;
   margin: 2rem auto;
 }
-.button-container{
+.button-container {
   margin: 1rem;
   display: flex;
   justify-content: flex-end;
@@ -511,4 +508,7 @@ a.button-a {
 
 .edit-min {
   height: 16px !important;
+}
+.button-le {
+  display: flex;
 }

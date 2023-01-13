@@ -1,17 +1,13 @@
+import CheckIcon from "@mui/icons-material/Check";
 import DeleteIcon from "@mui/icons-material/Delete";
-import SendIcon from "@mui/icons-material/Send";
-import { Button, IconButton, Snackbar } from "@mui/material";
+import { IconButton, Paper, styled } from "@mui/material";
+import { Box } from "@mui/system";
 import { deleteDoc, doc, updateDoc } from "firebase/firestore";
-import { useState } from "react";
 import { UserAuth } from "../context/AuthContext";
 import { db } from "../firebase";
-import { useWindowResize } from "../hooks/useWindowsSize";
 import { TaskModel } from "../utils/task";
 
 export const Task = (props: { task: TaskModel }) => {
-  const [snack, setSnack] = useState(false);
-  const width = useWindowResize();
-  const brackPoint = 650;
   const { user } = UserAuth();
 
   const handleUpdate = async () => {
@@ -23,7 +19,6 @@ export const Task = (props: { task: TaskModel }) => {
           text: props.task.text,
         },
       });
-      sendSnackBar();
     } catch (err) {
       alert(err);
     }
@@ -33,60 +28,38 @@ export const Task = (props: { task: TaskModel }) => {
     const taskDocRef = doc(db, "todos" + user.uid, props.task.id ?? "");
     try {
       await deleteDoc(taskDocRef);
-      sendSnackBar();
     } catch (err) {
       alert(err);
     }
   };
 
-  const sendSnackBar = () => {
-    setSnack(true);
-  };
-  const handleSnackClose = () => {
-    setSnack(false);
-  };
+  const Item = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: "start",
+    color: theme.palette.text.secondary,
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+  }));
 
   return (
-    <div className="task-card">
-      <div className="task-description">
-        <p>{props.task.text}</p>
-      </div>
-      <div className="task-button-cnt">
-        {props.task.completed ? (
-          width > brackPoint ? (
-            <Button
-              variant="contained"
-              endIcon={<DeleteIcon />}
-              onClick={handleDelete}
-            >
-              Delete
-            </Button>
-          ) : (
-            <IconButton aria-label="delete" size="small">
-              <DeleteIcon fontSize="small" />
+    <Box>
+      <Item elevation={3}>
+        {props.task.text}
+
+        <div className="button-le">
+          {!props.task.completed && (
+            <IconButton aria-label="complete" onClick={handleUpdate}>
+              <CheckIcon className="edit-min" />
             </IconButton>
-          )
-        ) : width > brackPoint ? (
-          <Button
-            variant="contained"
-            endIcon={<SendIcon />}
-            onClick={handleUpdate}
-          >
-            Send
-          </Button>
-        ) : (
-          <IconButton aria-label="delete" size="small">
-            <SendIcon fontSize="small" />
+          )}
+          <IconButton aria-label="delete" onClick={handleDelete}>
+            <DeleteIcon className="edit-min" />
           </IconButton>
-        )}
-      </div>
-      <Snackbar
-        open={snack}
-        autoHideDuration={6000}
-        onClose={handleSnackClose}
-        message={props.task.completed ? "Task Deleted" : "Task Update"}
-        // action={action}
-      />
-    </div>
+        </div>
+      </Item>
+    </Box>
   );
 };
