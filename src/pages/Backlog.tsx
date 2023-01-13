@@ -44,7 +44,7 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
   display: "flex",
   justifyContent: "space-between",
-  alignItems: 'center'
+  alignItems: "center",
 }));
 
 const modalStyle = {
@@ -168,7 +168,7 @@ export const Backlog = () => {
       <div className="backlog-cnt">
         <Stack spacing={2}>
           {values.map((backlogEl) => (
-            <Box key={backlogEl.id} >
+            <Box key={backlogEl.id}>
               <Item>
                 {backlogEl.desc ? (
                   <DataArrayIcon />
@@ -176,8 +176,11 @@ export const Backlog = () => {
                   <DataArrayIcon className="icon-none" />
                 )}
                 {backlogEl.val}
-                <IconButton aria-label="edit" onClick={() => handleOpen(backlogEl.id)}>
-                  <EditIcon className="edit-min"/>
+                <IconButton
+                  aria-label="edit"
+                  onClick={() => handleOpen(backlogEl.id)}
+                >
+                  <EditIcon className="edit-min" />
                 </IconButton>
               </Item>
             </Box>
@@ -193,23 +196,12 @@ export const Backlog = () => {
         <Box sx={modalStyle}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
             {selected?.val}
+            
           </Typography>
-          {}
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Backlog creato il {selected?.date}
-            {!editing ? (
-              <IconButton aria-label="delete" onClick={openEdit}>
-                <EditIcon />
-              </IconButton>
-            ) : (
-              <IconButton aria-label="delete" onClick={() => setEditing(false)}>
-                <CloseIcon />
-              </IconButton>
-            )}
-          </Typography>
+          <br />
+
           {editing ? (
             <>
-              <hr></hr>
               <TextField
                 fullWidth={true}
                 id="outlined-basic-desc"
@@ -222,14 +214,26 @@ export const Backlog = () => {
             </>
           ) : (
             <>
-              <hr></hr>
               <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                 {selected?.desc}
               </Typography>
             </>
           )}
-
+          <hr></hr>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            Backlog creato il {selected?.date}
+            
+          </Typography>
           <div className="button-container">
+          {!editing ? (
+              <IconButton aria-label="delete" onClick={openEdit}>
+                <EditIcon />
+              </IconButton>
+            ) : (
+              <IconButton aria-label="delete" onClick={() => setEditing(false)}>
+                <CloseIcon />
+              </IconButton>
+            )}
             {editing ? (
               <Button
                 variant="outlined"
