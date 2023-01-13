@@ -505,3 +505,10 @@ a.button-a {
   display: flex;
   justify-content: flex-end;
 }
+.icon-none {
+  color: transparent;
+}
+
+.edit-min {
+  height: 16px !important;
+}

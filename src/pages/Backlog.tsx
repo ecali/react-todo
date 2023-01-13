@@ -28,7 +28,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import CheckIcon from "@mui/icons-material/Check";
 import CloseIcon from "@mui/icons-material/Close";
-
+import DataArrayIcon from "@mui/icons-material/DataArray";
 interface BacklogInterface {
   val: string;
   desc?: string;
@@ -42,6 +42,9 @@ const Item = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(1),
   textAlign: "center",
   color: theme.palette.text.secondary,
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: 'center'
 }));
 
 const modalStyle = {
@@ -165,8 +168,18 @@ export const Backlog = () => {
       <div className="backlog-cnt">
         <Stack spacing={2}>
           {values.map((backlogEl) => (
-            <Box key={backlogEl.id} onClick={() => handleOpen(backlogEl.id)}>
-              <Item>{backlogEl.val}</Item>
+            <Box key={backlogEl.id} >
+              <Item>
+                {backlogEl.desc ? (
+                  <DataArrayIcon />
+                ) : (
+                  <DataArrayIcon className="icon-none" />
+                )}
+                {backlogEl.val}
+                <IconButton aria-label="edit" onClick={() => handleOpen(backlogEl.id)}>
+                  <EditIcon className="edit-min"/>
+                </IconButton>
+              </Item>
             </Box>
           ))}
         </Stack>
